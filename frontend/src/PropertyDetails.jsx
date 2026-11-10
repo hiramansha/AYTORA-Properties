@@ -1,45 +1,67 @@
-import { ArrowLeft, MapPin, BedDouble, Bath, Maximize, Phone, ShieldCheck } from "lucide-react";
-import { useNavigate, useParams } from "react-router-dom";
 
-const PropertyDetails = () => {
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  MapPin,
+  BedDouble,
+  Bath,
+  Maximize2,
+  Phone,
+  ShieldCheck
+} from "lucide-react";
+
+function PropertyDetails({ properties }) {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const property = properties.find((item) => item.id === Number(id));
+
+  if (!property) {
+    return (
+      <div className="details-not-found">
+        <h1>Property Not Found</h1>
+        <button onClick={() => navigate("/")}>
+          <ArrowLeft size={18} /> Back to Home
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="details-page">
-      <button onClick={() => navigate(-1)} className="back-button">
-        <ArrowLeft size={18} /> Back to Properties
-      </button>
+      <header className="details-navbar">
+        <button onClick={() => navigate("/")} className="back-button">
+          <ArrowLeft size={18} /> Back to Properties
+        </button>
+        <strong>AYTORA PROPERTIES</strong>
+      </header>
 
-      <div className="details-container">
-        <img
-          className="details-image"
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400"
-          alt="Luxury property"
-        />
+      <main className="details-container">
+        <div className="details-image-wrap">
+          <img src={property.image} alt={property.title} />
+        </div>
 
         <div className="details-content">
           <span className="section-label">AYTORA EXCLUSIVE</span>
-          <h1>Modern Luxury Villa</h1>
+
+          <h1>{property.title}</h1>
 
           <p className="details-location">
-            <MapPin size={18} /> DHA Phase 6, Lahore
+            <MapPin size={18} /> {property.location}
           </p>
 
-          <h2>PKR 8.5 Crore</h2>
+          <h2>{property.price}</h2>
 
           <div className="details-features">
-            <span><BedDouble /> 5 Bedrooms</span>
-            <span><Bath /> 6 Bathrooms</span>
-            <span><Maximize /> 1 Kanal</span>
+            <span><BedDouble /> {property.beds} Bedrooms</span>
+            <span><Bath /> {property.baths} Bathrooms</span>
+            <span><Maximize2 /> {property.area}</span>
           </div>
 
           <h3>Property Overview</h3>
-          <p>
-            Discover elegant living in this modern luxury villa.
-            Designed with spacious interiors and contemporary
-            architecture, this property offers a comfortable
-            lifestyle for your family.
+          <p className="details-description">
+            {property.description}
           </p>
 
           <div className="details-trust">
@@ -47,16 +69,20 @@ const PropertyDetails = () => {
             <span>Explore your next home with AYTORA Properties.</span>
           </div>
 
-          <button
+          <a
             className="details-contact"
-            onClick={() => window.location.href = "mailto:hello@aytoraproperties.com?subject=Property%20Inquiry%20" + id}
+            href={`mailto:hello@aytoraproperties.com?subject=${encodeURIComponent(
+              "Property Inquiry: " + property.title
+            )}`}
           >
             <Phone size={18} /> Enquire About This Property
-          </button>
+            <ArrowUpRight size={18} />
+          </a>
         </div>
-      </div>
+      </main>
     </div>
   );
-};
+}
 
 export default PropertyDetails;
+
