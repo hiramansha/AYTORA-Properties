@@ -1,21 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
-  Search,
-  MapPin,
-  BedDouble,
-  Bath,
-  Maximize,
-  Heart,
-  ArrowRight,
-  Menu,
-  X,
-  ChevronDown,
-  Home,
-  Building2,
-  KeyRound,
-  ShieldCheck,
-  Phone,
-  ArrowUpRight
+  Search, MapPin, BedDouble, Bath, Maximize, Heart,
+  ArrowRight, Menu, X, Home, Building2, KeyRound,
+  ShieldCheck, Phone, ArrowUpRight
 } from "lucide-react";
 import "./App.css";
 
@@ -56,6 +44,8 @@ const properties = [
 ];
 
 function App() {
+  const navigate = useNavigate();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [propertyType, setPropertyType] = useState("All");
@@ -109,13 +99,14 @@ function App() {
           <a href="#services" onClick={() => setMenuOpen(false)}>Our Services</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About Us</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
-          <a href="#properties" className="nav-cta">Explore Properties <ArrowUpRight size={16} /></a>
+          <a href="#properties" className="nav-cta">
+            Explore Properties <ArrowUpRight size={16} />
+          </a>
         </nav>
       </header>
 
       <main>
         <section className="hero" id="home">
-          <div className="hero-overlay"></div>
           <div className="hero-content">
             <span className="eyebrow">FIND YOUR PLACE IN THE WORLD</span>
             <h1>Find a Home.<br /><span>Build Your Future.</span></h1>
@@ -183,29 +174,41 @@ function App() {
                 <div className="property-image">
                   <img src={property.image} alt={property.title} />
                   <span className="property-tag">FEATURED</span>
+
                   <button
                     className={favorites.includes(property.id) ? "favorite active" : "favorite"}
                     onClick={() => toggleFavorite(property.id)}
                     aria-label="Add to favorites"
                   >
-                    <Heart size={19} fill={favorites.includes(property.id) ? "currentColor" : "none"} />
+                    <Heart
+                      size={19}
+                      fill={favorites.includes(property.id) ? "currentColor" : "none"}
+                    />
                   </button>
                 </div>
 
                 <div className="property-info">
                   <span className="property-type">{property.type}</span>
                   <h3>{property.title}</h3>
+
                   <p className="property-location">
                     <MapPin size={15} /> {property.location}
                   </p>
+
                   <div className="property-features">
                     <span><BedDouble size={16} /> {property.beds} Beds</span>
                     <span><Bath size={16} /> {property.baths} Baths</span>
                     <span><Maximize size={16} /> {property.area}</span>
                   </div>
+
                   <div className="property-footer">
                     <strong>{property.price}</strong>
-                    <button aria-label="View property"><ArrowUpRight size={19} /></button>
+                    <button
+                      aria-label="View property"
+                      onClick={() => navigate(`/property/${property.id}`)}
+                    >
+                      <ArrowUpRight size={19} />
+                    </button>
                   </div>
                 </div>
               </article>
@@ -236,16 +239,19 @@ function App() {
               <h3>Buy a Property</h3>
               <p>Find a place that matches your lifestyle and future plans.</p>
             </div>
+
             <div className="service-card">
               <span><KeyRound size={25} /></span>
               <h3>Sell a Property</h3>
               <p>Connect with potential buyers through a trusted process.</p>
             </div>
+
             <div className="service-card">
               <span><Building2 size={25} /></span>
               <h3>Property Investment</h3>
               <p>Explore opportunities to make informed property decisions.</p>
             </div>
+
             <div className="service-card">
               <span><ShieldCheck size={25} /></span>
               <h3>Trusted Guidance</h3>
@@ -261,6 +267,7 @@ function App() {
               alt="Elegant modern home"
             />
           </div>
+
           <div className="about-content">
             <span className="section-label">OUR STORY</span>
             <h2>A Better Way to Find Your Place.</h2>
@@ -288,10 +295,15 @@ function App() {
       <footer className="footer">
         <a href="#home" className="brand footer-brand">
           <span className="brand-icon"><Home size={22} /></span>
-          <span><strong>AYTORA</strong><small>PROPERTIES</small></span>
+          <span>
+            <strong>AYTORA</strong>
+            <small>PROPERTIES</small>
+          </span>
         </a>
         <p>Where Trust Finds a Home.</p>
-        <span className="copyright">© 2026 AYTORA Properties. All rights reserved.</span>
+        <span className="copyright">
+          © 2026 AYTORA Properties. All rights reserved.
+        </span>
       </footer>
 
     </div>
