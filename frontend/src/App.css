@@ -1,42 +1,9 @@
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
-
 :root {
-  font-family: 'DM Sans', sans-serif;
-  color: #253b32;
-  background: #faf9f5;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
   --green: #173f35;
   --gold: #b99a65;
   --cream: #faf9f5;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button, select {
-  font: inherit;
-}
-
-button, a {
-  -webkit-tap-highlight-color: transparent;
+  --muted: #858b83;
 }
 
 .site-wrapper {
@@ -44,6 +11,8 @@ button, a {
   overflow: hidden;
   background: var(--cream);
 }
+
+/* NAVIGATION */
 
 .navbar {
   height: 88px;
@@ -56,35 +25,11 @@ button, a {
   z-index: 20;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  color: var(--green);
-}
-
-.brand-icon {
-  width: 43px;
-  height: 43px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--gold);
-  font-family: 'Playfair Display', serif;
-  font-size: 29px;
-}
-
-.brand strong {
+.brand img {
+  width: 145px;
+  height: 76px;
+  object-fit: contain;
   display: block;
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-}
-
-.brand small {
-  display: block;
-  font-size: 9px;
-  letter-spacing: 3.6px;
-  margin-top: 2px;
 }
 
 .nav-links {
@@ -104,7 +49,9 @@ button, a {
   color: var(--gold);
 }
 
-.nav-cta, .primary-btn, .contact-btn {
+.nav-cta,
+.primary-btn,
+.contact-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -115,9 +62,12 @@ button, a {
   font-size: 12px;
   font-weight: 600;
   transition: .25s;
+  border: 0;
 }
 
-.nav-cta:hover, .primary-btn:hover, .contact-btn:hover {
+.nav-cta:hover,
+.primary-btn:hover,
+.contact-btn:hover {
   background: #285a49;
   transform: translateY(-2px);
 }
@@ -128,6 +78,8 @@ button, a {
   background: transparent;
   color: var(--green);
 }
+
+/* HERO */
 
 .hero {
   height: 660px;
@@ -145,7 +97,7 @@ button, a {
   inset: 0;
   background:
     linear-gradient(90deg, rgba(15,35,29,.88) 0%, rgba(15,35,29,.62) 48%, rgba(15,35,29,.08) 100%),
-    url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=2000&q=90') center 52% / cover;
+    url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=2000&q=90") center 52% / cover;
 }
 
 .hero-content {
@@ -155,7 +107,8 @@ button, a {
   margin-top: -15px;
 }
 
-.eyebrow, .section-label {
+.eyebrow,
+.section-label {
   color: var(--gold);
   font-size: 10px;
   font-weight: 700;
@@ -175,7 +128,7 @@ button, a {
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(55px, 7vw, 88px);
   font-weight: 500;
   line-height: 1.08;
@@ -183,8 +136,10 @@ button, a {
   margin: 28px 0 20px;
 }
 
-.hero h1 em, .section-heading h2 em,
-.about-content h2 em, .services-heading h2 em,
+.hero h1 em,
+.section-heading h2 em,
+.about-content h2 em,
+.services-heading h2 em,
 .contact-section h2 em {
   color: var(--gold);
   font-weight: 500;
@@ -217,6 +172,7 @@ button, a {
   font-size: 12px;
   border-bottom: 1px solid rgba(255,255,255,.55);
   padding-bottom: 7px;
+  color: white;
 }
 
 .hero-bottom {
@@ -242,10 +198,11 @@ button, a {
   color: rgba(255,255,255,.65);
 }
 
+/* PROPERTY SEARCH */
+
 .search-section {
   position: relative;
   z-index: 5;
-  margin: -1px auto 0;
   padding: 38px 7%;
   background: #f0eee6;
   display: flex;
@@ -266,9 +223,9 @@ button, a {
 }
 
 .search-heading p {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 18px;
-  margin: 8px 0 0;
+  margin-top: 8px;
 }
 
 .search-controls {
@@ -314,9 +271,10 @@ button, a {
   display: flex;
   align-items: center;
   gap: 10px;
-  cursor: pointer;
   font-size: 12px;
 }
+
+/* PROPERTY CARDS */
 
 .properties-section {
   padding: 110px 8%;
@@ -329,15 +287,17 @@ button, a {
   margin-bottom: 45px;
 }
 
-.section-heading h2, .services-heading h2 {
-  font-family: 'Playfair Display', serif;
+.section-heading h2,
+.services-heading h2 {
+  font-family: "Playfair Display", serif;
   font-size: clamp(35px, 4vw, 49px);
   font-weight: 500;
   margin: 14px 0 9px;
   color: var(--green);
 }
 
-.section-heading p, .services-heading > p {
+.section-heading p,
+.services-heading > p {
   color: #858b83;
   font-size: 13px;
 }
@@ -359,6 +319,7 @@ button, a {
   background: white;
   border: 1px solid #eeece5;
   transition: transform .3s, box-shadow .3s;
+  min-width: 0;
 }
 
 .property-card:hover {
@@ -408,6 +369,10 @@ button, a {
   place-items: center;
 }
 
+.property-arrow:hover {
+  background: var(--gold);
+}
+
 .property-info {
   padding: 23px 21px;
 }
@@ -421,7 +386,7 @@ button, a {
 }
 
 .property-info h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-weight: 500;
   font-size: 21px;
   margin: 12px 0;
@@ -452,6 +417,7 @@ button, a {
 
 .property-details svg {
   color: var(--gold);
+  flex-shrink: 0;
 }
 
 .view-all {
@@ -469,6 +435,13 @@ button, a {
   font-size: 12px;
   font-weight: 600;
 }
+
+.no-results {
+  color: var(--muted);
+  padding: 25px 0;
+}
+
+/* ABOUT */
 
 .about-section {
   background: #f0eee6;
@@ -509,13 +482,14 @@ button, a {
 }
 
 .about-image-label strong {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 23px;
   font-weight: 500;
 }
 
-.about-content h2, .contact-section h2 {
-  font-family: 'Playfair Display', serif;
+.about-content h2,
+.contact-section h2 {
+  font-family: "Playfair Display", serif;
   font-size: clamp(36px, 4vw, 50px);
   line-height: 1.2;
   font-weight: 500;
@@ -533,6 +507,8 @@ button, a {
 .about-content .primary-btn {
   margin-top: 17px;
 }
+
+/* SERVICES */
 
 .services-section {
   padding: 105px 8%;
@@ -568,12 +544,12 @@ button, a {
   transform: translateY(-5px);
 }
 
-.service-card > svg:first-child {
+.service-card > svg {
   color: var(--gold);
 }
 
 .service-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 19px;
   font-weight: 500;
   margin: 22px 0 10px;
@@ -589,12 +565,7 @@ button, a {
   color: #d4ddd6;
 }
 
-.service-arrow {
-  position: absolute;
-  right: 20px;
-  top: 22px;
-  color: var(--gold);
-}
+/* CONTACT AND FOOTER */
 
 .contact-section {
   padding: 75px 10%;
@@ -634,8 +605,13 @@ button, a {
   gap: 20px;
 }
 
+.footer-brand img {
+  width: 125px;
+  height: 70px;
+}
+
 .footer > p {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-style: italic;
   color: #838a80;
   font-size: 13px;
@@ -645,6 +621,169 @@ button, a {
   font-size: 10px;
   color: #969a92;
 }
+
+/* PROPERTY DETAILS PAGE */
+
+.details-page {
+  min-height: 100vh;
+  background: var(--cream);
+}
+
+.details-navbar {
+  height: 85px;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9e6dd;
+}
+
+.details-navbar strong {
+  color: var(--green);
+  font-family: "Playfair Display", serif;
+  letter-spacing: 2px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font-size: 13px;
+}
+
+.details-container {
+  max-width: 1150px;
+  margin: 65px auto;
+  padding: 0 25px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.details-image-wrap {
+  height: 510px;
+  overflow: hidden;
+}
+
+.details-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 48px);
+  color: var(--green);
+  font-weight: 500;
+  margin: 17px 0;
+}
+
+.details-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.details-content h2 {
+  color: var(--gold);
+  font-size: 23px;
+  margin: 25px 0;
+}
+
+.details-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 20px 0;
+  border-top: 1px solid #e8e5dc;
+  border-bottom: 1px solid #e8e5dc;
+}
+
+.details-features span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #68756b;
+  font-size: 12px;
+}
+
+.details-features svg {
+  width: 18px;
+  color: var(--gold);
+}
+
+.details-content h3 {
+  color: var(--green);
+  font-family: "Playfair Display", serif;
+  font-size: 23px;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.details-description {
+  color: #7c857c;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.details-trust {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green);
+  font-size: 12px;
+  margin: 25px 0;
+}
+
+.details-trust svg {
+  color: var(--gold);
+}
+
+.details-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 17px 20px;
+  background: var(--green);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  transition: .25s;
+}
+
+.details-contact:hover {
+  background: #285a49;
+}
+
+.details-not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  color: var(--green);
+}
+
+.details-not-found button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border: 0;
+  background: var(--green);
+  color: white;
+}
+
+/* RESPONSIVE */
 
 @media (max-width: 1050px) {
   .navbar {
@@ -677,6 +816,11 @@ button, a {
     height: 75px;
   }
 
+  .brand img {
+    width: 115px;
+    height: 65px;
+  }
+
   .nav-links {
     display: none;
     position: absolute;
@@ -701,7 +845,6 @@ button, a {
 
   .menu-toggle {
     display: block;
-    cursor: pointer;
   }
 
   .hero {
@@ -792,10 +935,6 @@ button, a {
     padding: 75px 7%;
   }
 
-  .services-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .contact-section {
     padding: 65px 7%;
     flex-direction: column;
@@ -806,6 +945,20 @@ button, a {
     padding: 35px 7%;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .details-container {
+    grid-template-columns: 1fr;
+    margin: 35px auto;
+    gap: 30px;
+  }
+
+  .details-image-wrap {
+    height: 330px;
+  }
+
+  .details-navbar {
+    padding: 0 5%;
   }
 }
 
@@ -829,20 +982,12 @@ button, a {
   .section-heading {
     flex-direction: column;
   }
-}
 
+  .property-details {
+    flex-wrap: wrap;
+  }
 
-/* AYTORA Brand Logo */
-.brand img {
-  width: 145px;
-  height: 76px;
-  object-fit: contain;
-  display: block;
-}
-
-@media (max-width: 760px) {
-  .brand img {
-    width: 115px;
-    height: 65px;
+  .details-features {
+    flex-direction: column;
   }
 }
